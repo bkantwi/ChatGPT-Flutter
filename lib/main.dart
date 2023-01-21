@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-const backgroundColor = Color(0xff343541);
-const botBackgroundColor = Color(0xff444654);
+const backgroundColor = Color(0xffffffff);
+const botBackgroundColor = Color(0xffdcdcdc);
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -31,7 +31,7 @@ class ChatPage extends StatefulWidget {
 }
 
 Future<String> generateResponse(String prompt) async {
-  const apiKey = "Place your API key here";
+  const apiKey = "Place your api Key here";
 
   var url = Uri.https("api.openai.com", "/v1/completions");
   final response = await http.post(
@@ -73,7 +73,8 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
+        centerTitle: true,
+        // toolbarHeight: 100,
         title: const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
@@ -82,7 +83,7 @@ class _ChatPageState extends State<ChatPage> {
             textAlign: TextAlign.center,
           ),
         ),
-        backgroundColor: botBackgroundColor,
+        // backgroundColor: botBackgroundColor,
       ),
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -96,7 +97,7 @@ class _ChatPageState extends State<ChatPage> {
               child: const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: CircularProgressIndicator(
-                  color: Colors.white,
+                  color: Colors.blueAccent,
                 ),
               ),
             ),
@@ -165,7 +166,7 @@ class _ChatPageState extends State<ChatPage> {
     return Expanded(
       child: TextField(
         textCapitalization: TextCapitalization.sentences,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.black),
         controller: _textController,
         decoration: const InputDecoration(
           fillColor: botBackgroundColor,
@@ -255,7 +256,7 @@ class ChatMessageWidget extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge
-                        ?.copyWith(color: Colors.white),
+                        ?.copyWith(color: Color(0xff343434)),
                   ),
                 ),
               ],
